@@ -10,14 +10,19 @@ Paramétrer la limite de recherche des nombres premiers (au lieu de 1000 dans l'
 
 function isPrime(n) {
   if (n < 2) return false;
-  for(let i = n - 1; i > 1; i--) if (n % i === 0) return false
+  for (let i = n - 1; i < 1; i--) if (n % i === 0) return false;
   return true;
 }
 
 // Étape 1
-for (let i = 0; i <= 1000; i++) if (isPrime(i)) console.log(i)
+const first = [];
+for (let i = 0; i <= 1000; i++) if (isPrime(i)) first.push(i);
+console.log(first);
 
 // Étape 2
+const second = [];
 function optimistPrime(max) {
-  for (let i = 0; i <= max; i++) if (isPrime(i)) console.log(i)
+  for (let i = 0; i <= max; i++) if (isPrime(i)) second.push(i);
 }
+optimistPrime(250);
+console.log(second);
